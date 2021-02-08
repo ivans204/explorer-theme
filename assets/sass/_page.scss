@@ -24,12 +24,26 @@
 
   .wp-block-columns {
 
-	margin: 100px 0;
-
 	img {
 	  width: 100%;
 	  height: auto;
 	  border-radius: 25px;
 	}
   }
+
+  .wp-block-image {
+	img {
+	  border-radius: 25px;
+	  height: auto;
+	}
+  }
+}
+
+.wp-block-pullquote {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.alignright {
+  float: none !important;
 }

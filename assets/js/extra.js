@@ -7,9 +7,9 @@ $(document).ready(function () {
   let y = window.pageYOffset
 
   function frontPageNavScroll() {
-    if (y >= 800) {
+    if (y >= 850) {
       frontNav.css({'background-color': 'rgba(0,0,0,0.5)'})
-    } else if (y < 800) {
+    } else if (y < 850) {
       frontNav.css({'background-color': 'transparent'})
     }
   }

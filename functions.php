@@ -8,7 +8,7 @@ if (!function_exists('explorer_theme_setup'))
 // Include additional files
         require_once(get_template_directory() . '/inc/classes/wp-bootstrap-navwalker.php');
         require_once(get_template_directory() . '/inc/classes/theme-customizer.php');
-        require_once (get_template_directory() . '/inc/woocommerce/explorer-woocommerce.php');
+//        require_once (get_template_directory() . '/inc/woocommerce/explorer-woocommerce.php');
 
 // Logo theme support
         add_theme_support('custom-logo');
@@ -17,6 +17,7 @@ if (!function_exists('explorer_theme_setup'))
             'flex-width' => true,
         ]);
         add_theme_support( 'custom-header' );
+        add_theme_support( 'wp-block-styles' );
 
 // Thumbnail theme support
         add_theme_support('post-thumbnails');
