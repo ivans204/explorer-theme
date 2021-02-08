@@ -1,0 +1,23 @@
+$red: #A80603;
+$blue: #193B56; // karta, quote
+$blue-link: #64A2D2;
+$text-dark: #1A1A1A;
+$text-light: #5D5D5D;
+$text-input-placeholder: #B4B4B4;
+$text-footer: #848484;
+$green-text: #005A3E;
+$green-bg: #D8FFF3;
+$gray-border: #e3e3e3;
+
+$header-height: 850px;
+
+
+.theme-explorer-theme {
+  h1, h2, h3 {
+    font-family: 'Caveat Brush', cursive !important;
+  }
+
+  p, li, label {
+    font-family: 'Montserrat', sans-serif !important;
+  }
+}

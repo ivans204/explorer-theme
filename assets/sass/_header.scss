@@ -1,0 +1,83 @@
+header {
+  .custom-logo-link {
+	margin-top: 15px;
+
+	@media screen and (max-width: 991px) {
+	  display: block;
+	  width: 100%;
+	  text-align: center;
+	}
+
+	.custom-logo {
+	  width: 200px;
+	  height: auto;
+	}
+  }
+
+  .navbar-nav {
+	.social-btns {
+	  display: flex;
+	  align-items: center;
+	}
+
+	.menu-item {
+	  margin-right: 10px;
+
+	  a {
+		font-size: 1rem;
+		text-transform: uppercase;
+	  }
+
+	  .menu-link-social {
+		margin-right: 10px;
+
+		svg {
+		  stroke: black
+		}
+	  }
+	}
+
+	.active {
+	  .nav-link {
+		font-weight: bold;
+		position: relative;
+
+		&:after {
+		  content: '';
+		  position: absolute;
+		  width: 100%;
+		  left: 0;
+		  bottom: 2px;
+		  height: 2px;
+		  background: black;
+		}
+	  }
+	}
+  }
+
+  .navbar {
+	.navbar-hamburger {
+	  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+	  display: inline-block;
+	  width: 1.5em;
+	  height: 1.5em;
+	  vertical-align: middle;
+	  content: "";
+	  background-size: 100% 100%;
+	}
+  }
+
+}
+
+.navbar-toggler {
+  border: none;
+
+  &:focus {
+	outline: none !important;
+  }
+
+  @media screen and (max-width: 991px) {
+	display: block !important;
+	width: 100%;
+  }
+}

@@ -1,0 +1,101 @@
+.contact-main {
+
+  .contact-wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+  }
+
+  .contact-title {
+	text-align: center;
+	font-size: 3rem;
+	padding: 50px 0;
+  }
+
+  .contact-info-title {
+	letter-spacing: 2px;
+	margin-bottom: 30px;
+  }
+
+  .contact-info-text {
+	color: $text-light;
+	margin-bottom: 70px;
+	line-height: 2;
+  }
+
+  .info {
+	display: flex;
+	align-items: center;
+	margin-bottom: 30px;
+
+	.icon {
+	  margin-right: 25px;
+	}
+
+	.info-link {
+	  color: $text-dark !important;
+	  font-weight: bold;
+
+	  span {
+		color: $text-light;
+		font-weight: normal;
+	  }
+	}
+
+	.info-social {
+	  text-decoration: underline;
+	}
+  }
+
+}
+
+.wpcf7 {
+
+  .form-items-inline {
+	display: flex;
+
+	input {
+	  flex: 0 0 50%;
+	}
+
+  }
+
+  .contact-msg {
+	color: $text-dark;
+	width: 100%;
+  }
+
+  input, textarea {
+	width: 100%;
+	border: 1px solid $gray-border !important;
+	border-radius: 15px;
+	padding: 15px;
+	margin-top: 5px;
+	color: $text-dark;
+
+	&::placeholder {
+	  color: $text-input-placeholder;
+	  font-style: italic;
+	}
+
+	&:focus {
+	  outline: none;
+	}
+  }
+
+  textarea {
+	height: 230px;
+  }
+
+  .contact-btn {
+	width: 50%;
+	color: white;
+	font-weight: bold;
+	border: none !important;
+	background-color: $gray-border;
+  }
+}
+
+.mr-15 {
+  margin-right: 15px;
+}

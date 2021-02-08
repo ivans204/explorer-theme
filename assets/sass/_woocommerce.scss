@@ -1,0 +1,67 @@
+.woocommerce-cart {
+  .content-page {
+	background-image: none;
+  }
+}
+
+.woocommerce-page {
+  .product {
+	.images {
+	  float: none !important;
+	}
+
+	.summary {
+	  float: none !important;
+	  width: auto !important;
+	  clear: none !important;
+	}
+
+
+	.woocommerce-tabs {
+	  .tabs {
+
+
+		padding: 0 !important;
+		border-bottom: 1px solid $gray-border;
+
+		li {
+		  border: none !important;
+		  background: transparent !important;
+		  padding: 0 !important;
+		  margin: 0 25px 0 0 !important;
+
+		  a {
+			color: $text-footer !important;
+			text-transform: uppercase;
+			font-weight: normal !important;
+		  }
+
+		  &.active {
+			a {
+			  color: $red !important;
+			  border-bottom: 2px solid $red !important;
+			}
+		  }
+
+		  &::before {
+			content: unset !important;
+		  }
+
+		  &::after {
+			content: unset !important;
+		  }
+		}
+
+
+	  }
+	}
+
+
+  }
+}
+
+.tura-duration {
+  color: $text-light;
+  font-size: 18px;
+  margin-bottom: 50px;
+}

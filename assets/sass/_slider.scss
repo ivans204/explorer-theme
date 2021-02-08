@@ -1,0 +1,79 @@
+.slideshow-container {
+  position: relative;
+  background-image: url("../img/background-quotes.png");
+  background-position: center;
+  height: 746px;
+  margin-bottom: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .reviews-title {
+	position: absolute;
+	top: 100px;
+	font-size: 2.5rem;
+	color: white;
+  }
+}
+
+.slide-quote {
+  color: white;
+}
+
+.mySlides {
+  display: none;
+  padding: 80px;
+  text-align: center;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: -30px;
+  font-size: 16px;
+  user-select: none;
+  text-align: center;
+  text-decoration: none !important;
+  font-weight: 400;
+  background-color: $blue;
+  color: white;
+  border-radius: 50%;
+}
+
+.prev {
+  left: 5%;
+}
+
+.next {
+  right: 5%;
+}
+
+.prev:hover, .next:hover {
+  background-color: $blue !important;
+  color: white !important;
+}
+
+.slide-title {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.slide-quote {
+  font-size: 1.2rem;
+}
+
+.slide-author {
+  color: #fff;
+  font-weight: bold;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}

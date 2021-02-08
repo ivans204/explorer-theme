@@ -1,0 +1,88 @@
+#front-header {
+  //background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)), url("../img/marko.jpg");
+  //background-image: url("../img/marko.jpg");
+  background-position: center;
+  background-size: cover;
+  height: $header-height;
+  box-shadow: inset 0 0 0 800px rgba(0, 0, 0, .5);
+
+  header {
+	.metaslider {
+	  margin: 0 !important;
+	}
+  }
+
+  .top-navbar {
+	position: fixed;
+	top: 0;
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	z-index: 1;
+  }
+
+  .navbar-nav {
+	.social-btns {
+	  display: flex;
+	  align-items: center;
+	}
+
+	.menu-item {
+	  margin-right: 10px;
+
+	  a {
+		color: white !important;
+		font-size: 1rem;
+		text-transform: uppercase;
+	  }
+	}
+
+	.active {
+	  .nav-link {
+		font-weight: bold;
+		position: relative;
+
+		&:after {
+		  content: '';
+		  position: absolute;
+		  width: 100%;
+		  left: 0;
+		  bottom: 2px;
+		  height: 2px;
+		  background: white;
+		}
+	  }
+	}
+  }
+
+  .menu-link-social {
+	svg {
+	  stroke: white;
+	}
+  }
+
+  .dropdown-menu {
+	background-color: transparent;
+	//border: 1px solid white;
+	border: none;
+
+	.dropdown-item {
+	  &:hover {
+		background-color: transparent;
+		border-bottom: 1px solid white;
+	  }
+	}
+  }
+
+  .navbar {
+	.navbar-hamburger {
+	  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+	  display: inline-block;
+	  width: 1.5em;
+	  height: 1.5em;
+	  vertical-align: middle;
+	  content: "";
+	  background-size: 100% 100%;
+	}
+  }
+}
