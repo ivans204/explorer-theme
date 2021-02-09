@@ -117,7 +117,8 @@
 				<!-- Full-width slides/quotes -->
 				<div class="mySlides" style="display: block">
 					<p class="slide-title">Tura Gorski Kotar</p>
-					<q class="slide-quote">I love you the more in that I believe you had liked me for my own sake and for nothing else</q>
+					<p class="slide-quote">I love you the more in that I believe you had liked me for my own sake and
+						for nothing else</p>
 					<p class="slide-author">- John Keats</p>
 				</div>
 
@@ -135,6 +136,10 @@
 				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 				<a class="next" onclick="plusSlides(1)">&#10095;</a>
 			</div>
+		</section>
+		<section id="about-us"></section>
+		<section id="nesletter">
+            <?php echo do_shortcode('[newsletter_form]') ?>
 		</section>
 
     <?php endwhile; ?>

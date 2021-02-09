@@ -72,10 +72,6 @@ if (!function_exists('explorer_theme_setup'))
 // Change 'Primary Navigation' for the name of the menu that you'd like to amend.
             if ('Main Menu' === $menu_name)
             {
-                $face = get_template_directory_uri() . '/assets/icons/facebook.svg';
-                $insta = get_template_directory_uri() . '/assets/icons/instagram.svg';
-                $mail = get_template_directory_uri() . '/assets/icons/mail.svg';
-
                 $new_li = "
                     <li class='menu-item nav-item social-btns'>
                         <a target='_blank' href='https://www.facebook.com/Explorerhr-112775783908681/' class='menu-link-social'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-facebook'><path d='M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z'></path></svg></a>
@@ -83,6 +79,8 @@ if (!function_exists('explorer_theme_setup'))
                         <a target='_blank' href='#' class='menu-link-social'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-mail'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'></path><polyline points='22,6 12,13 2,6'></polyline></svg></a>
                     </li>
                     ";
+
+//                $new_li .= "<li class='menu-item nav-item social-btns'>" . do_shortcode('[language-switcher]') . "</li>";
 
                 return $menu_items . $new_li;
             }
