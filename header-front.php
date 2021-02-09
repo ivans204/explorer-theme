@@ -10,7 +10,6 @@
 </head>
 <body <?php body_class(); ?>>
 
-<!--<header id="front-header" style="background-image: url('--><?//= header_image() ?>
 <header id="front-header">
 	<nav id="front-nav" class="top-navbar navbar navbar-expand-lg navbar-light" role="navigation">
 		<div class="container">
