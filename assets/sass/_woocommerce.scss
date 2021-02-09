@@ -65,3 +65,11 @@
   font-size: 18px;
   margin-bottom: 50px;
 }
+
+.woocommerce {
+  .woocommerce-product-gallery__wrapper {
+	img {
+	  border-radius: 25px;
+	}
+  }
+}
