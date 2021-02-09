@@ -138,7 +138,7 @@
 			</div>
 		</section>
 		<section id="about-us"></section>
-		<section id="nesletter">
+		<section id="newsletter">
             <?php echo do_shortcode('[newsletter_form]') ?>
 		</section>
 
