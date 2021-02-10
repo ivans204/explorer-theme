@@ -8,30 +8,84 @@ class The_Customizer
 
     public function register_customize_sections($wp_customize) {
         // Add settings to sections.
+        $this->contact_info($wp_customize);
         $this->footer_section($wp_customize);
-        $this->header_section($wp_customize);
     }
 
-    private function header_section($wp_customize) {
-        $wp_customize->add_section('basic-header-section', [
-            'title' => 'Header Settings',
-            'priority' => 1,
-            'description' => __('Header Settings.', 'explorer'),
+    private function contact_info($wp_customize) {
+        $wp_customize->add_section('contact-info-section', [
+            'title' => 'Contact Info',
+            'description' => __('Social media links and phone number.', 'explorer'),
         ]);
 
-        $wp_customize->add_setting('basic-header-img', [
+        // Contact info textarea
+        $wp_customize->add_setting('contact-info-text', [
             'default' => '',
-            'type' => 'theme_mod',
-            'capability' => 'edit_theme_options',
+            'sanitize_callback' => [$this, 'sanitize_custom_text']
+        ]);
+
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'contact-info-text', [
+            'label' => 'Contact info Text',
+            'section' => 'contact-info-section',
+            'settings' => 'contact-info-text',
+            'type' => 'textarea',
+            'input_attrs' => ['placeholder' => 'Enter text for contact page']
+        ]));
+
+        // Contact info phone number
+        $wp_customize->add_setting('contact-phone-number', [
+            'default' => '',
+            'sanitize_callback' => [$this, 'sanitize_custom_number']
+        ]);
+
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'contact-info-number', [
+            'label' => 'Contact info Phone number',
+            'section' => 'contact-info-section',
+            'settings' => 'contact-phone-number',
+            'type' => 'number',
+            'input_attrs' => ['placeholder' => 'Enter contact phone number']
+        ]));
+
+        // Contact info mail
+        $wp_customize->add_setting('contact-info-mail', [
+            'default' => '',
+            'sanitize_callback' => [$this, 'sanitize_custom_mail']
+        ]);
+
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'contact-info-mail', [
+            'label' => 'Contact info Mail',
+            'section' => 'contact-info-section',
+            'settings' => 'contact-info-mail',
+            'type' => 'email',
+            'input_attrs' => ['placeholder' => 'Enter contact mail']
+        ]));
+
+        // Contact info instagram link
+        $wp_customize->add_setting('contact-instagram-link', [
+            'default' => '',
             'sanitize_callback' => [$this, 'sanitize_custom_url']
         ]);
 
-        $wp_customize->add_control(new WP_Customize_Cropped_Image_Control($wp_customize, 'basic-author-callout-image-control', [
-            'label' => 'Image',
-            'section' => 'basic-header-section',
-            'settings' => 'basic-header-img',
-//            'width' => 442,
-//            'height' => 310
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'contact-info-instagram', [
+            'label' => 'Contact Instagram link',
+            'section' => 'contact-info-section',
+            'settings' => 'contact-instagram-link',
+            'type' => 'text',
+            'input_attrs' => ['placeholder' => 'Enter Instagram link']
+        ]));
+
+        // Contact info facebook link
+        $wp_customize->add_setting('contact-facebook-link', [
+            'default' => '',
+            'sanitize_callback' => [$this, 'sanitize_custom_url']
+        ]);
+
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'contact-info-facebook', [
+            'label' => 'Contact Facebook link',
+            'section' => 'contact-info-section',
+            'settings' => 'contact-facebook-link',
+            'type' => 'text',
+            'input_attrs' => ['placeholder' => 'Enter Facebook link']
         ]));
     }
 
@@ -59,6 +113,14 @@ class The_Customizer
 
     public function sanitize_custom_text($input) {
         return filter_var($input, FILTER_SANITIZE_STRING);
+    }
+
+    public function sanitize_custom_number($input) {
+        return filter_var($input, FILTER_SANITIZE_NUMBER_INT);
+    }
+
+    public function sanitize_custom_mail($input) {
+        return filter_var($input, FILTER_SANITIZE_EMAIL);
     }
 
     public function sanitize_custom_url($input) {

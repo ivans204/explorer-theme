@@ -4,10 +4,10 @@
 		<div class="container social">
 			<p class="social-text">For more photos and informations, follow us on social networks</p>
 			<div class="social-links">
-				<a class="social-link" href="#">
+				<a class="social-link" target="_blank" href="<?= get_theme_mod('contact-instagram-link') ?>">
 					<img src="<?= get_template_directory_uri() . '/assets/icons/instagram.svg' ?>" alt="">@explorerhr
 				</a>
-				<a class="social-link" href="#">
+				<a class="social-link" target="_blank" href="<?= get_theme_mod('contact-facebook-link') ?>">
 					<img src="<?= get_template_directory_uri() . '/assets/icons/facebook.svg' ?>" alt="">Explorer.hr
 				</a>
 			</div>

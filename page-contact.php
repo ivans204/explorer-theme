@@ -7,28 +7,31 @@
 				<div class="row">
 					<div class="col-md-4 contact-wrap">
 						<h2 class="contact-info-title">Kontakt podatci</h2>
-						<p class="contact-info-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet at,
-							cupiditate eligendi eos incidunt ipsum labore minus mollitia natus, necessitatibus
-							nihil.</p>
+						<p class="contact-info-text"><?= get_theme_mod('contact-info-text') ?></p>
 						<div class="contact-info">
 
 							<div class="info">
 								<i class="icon icon-phone-black"></i>
-								<a class="info-link" href="#"> +385 555 5555 <br> <span>Broj telefona</span> </a>
+								<a class="info-link"
+								   href="tel:<?= get_theme_mod('contact-phone-number') ?>"> <?= get_theme_mod('contact-phone-number') ?>
+									<br> <span>Broj telefona</span> </a>
 							</div>
 							<div class="info">
 								<i class="icon icon-mail-black"></i>
-								<a class="info-link" href="mailto:support@explorer.hr"> +385 555 5555 <br> <span>E-mail adresa</span>
+								<a class="info-link"
+								   href="<?= 'mailto:' . get_theme_mod('contact-info-mail') ?>"> <?= get_theme_mod('contact-info-mail') ?>
+									<br> <span>E-mail adresa</span>
 								</a>
 							</div>
 							<div class="info">
 								<i class="icon icon-insta-black"></i>
-								<a class="info-link info-social" href="https://www.instagram.com/explorer_hr/">@explorer.hr </a>
+								<a class="info-link info-social" target="_blank"
+								   href="<?= get_theme_mod('contact-instagram-link') ?>">@explorer.hr </a>
 							</div>
 							<div class="info">
 								<i class="icon icon-facebook-black"></i>
-								<a class="info-link info-social"
-								   href="https://www.facebook.com/Explorerhr-112775783908681/">Explorer.hr</a>
+								<a class="info-link info-social" target="_blank"
+								   href="<?= get_theme_mod('contact-facebook-link') ?>">Explorer.hr</a>
 							</div>
 						</div>
 					</div>
