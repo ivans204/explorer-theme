@@ -10,29 +10,40 @@
 						<p class="contact-info-text"><?= get_theme_mod('contact-info-text') ?></p>
 						<div class="contact-info">
 
-							<div class="info">
-								<i class="icon icon-phone-black"></i>
-								<a class="info-link"
-								   href="tel:<?= get_theme_mod('contact-phone-number') ?>"> <?= get_theme_mod('contact-phone-number') ?>
-									<br> <span>Broj telefona</span> </a>
-							</div>
-							<div class="info">
-								<i class="icon icon-mail-black"></i>
-								<a class="info-link"
-								   href="<?= 'mailto:' . get_theme_mod('contact-info-mail') ?>"> <?= get_theme_mod('contact-info-mail') ?>
-									<br> <span>E-mail adresa</span>
-								</a>
-							</div>
-							<div class="info">
-								<i class="icon icon-insta-black"></i>
-								<a class="info-link info-social" target="_blank"
-								   href="<?= get_theme_mod('contact-instagram-link') ?>">@explorer.hr </a>
-							</div>
-							<div class="info">
-								<i class="icon icon-facebook-black"></i>
-								<a class="info-link info-social" target="_blank"
-								   href="<?= get_theme_mod('contact-facebook-link') ?>">Explorer.hr</a>
-							</div>
+                            <?php if (get_theme_mod('contact-phone-number')) { ?>
+								<div class="info">
+									<i class="icon icon-phone-black"></i>
+									<a class="info-link"
+									   href="tel:<?= get_theme_mod('contact-phone-number') ?>"> <?= get_theme_mod('contact-phone-number') ?>
+										<br> <span>Broj telefona</span> </a>
+								</div>
+                            <?php } ?>
+
+                            <?php if (get_theme_mod('contact-info-mail')) { ?>
+								<div class="info">
+									<i class="icon icon-mail-black"></i>
+									<a class="info-link"
+									   href="<?= 'mailto:' . get_theme_mod('contact-info-mail') ?>"> <?= get_theme_mod('contact-info-mail') ?>
+										<br> <span>E-mail adresa</span>
+									</a>
+								</div>
+                            <?php } ?>
+
+                            <?php if (get_theme_mod('contact-instagram-link')) { ?>
+								<div class="info">
+									<i class="icon icon-insta-black"></i>
+									<a class="info-link info-social" target="_blank"
+									   href="<?= get_theme_mod('contact-instagram-link') ?>">@explorer.hr </a>
+								</div>
+                            <?php } ?>
+
+                            <?php if (get_theme_mod('contact-instagram-link')) { ?>
+								<div class="info">
+									<i class="icon icon-facebook-black"></i>
+									<a class="info-link info-social" target="_blank"
+									   href="<?= get_theme_mod('contact-facebook-link') ?>">Explorer.hr</a>
+								</div>
+                            <?php } ?>
 						</div>
 					</div>
 					<div class="offset-md-1 col-md-7">
