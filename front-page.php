@@ -114,28 +114,35 @@
 
 				<h2 class="reviews-title">Reviews</h2>
 
-				<!-- Full-width slides/quotes -->
+                <?php
+                $args = [
+                    'post_type' => 'review',
+                    'posts_per_page' => -1
+                ];
+                $query = new WP_Query($args);
+                foreach ($query->posts as $key => $post)
+                {
+                if ($key === 0)
+                {
+                ?>
 				<div class="mySlides" style="display: block">
-					<p class="slide-title">Tura Gorski Kotar</p>
-					<p class="slide-quote">I love you the more in that I believe you had liked me for my own sake and
-						for nothing else</p>
-					<p class="slide-author">- John Keats</p>
-				</div>
+                    <?php } else { ?>
+					<div class="mySlides">
+                        <?php } ?>
+						<p class="slide-title"><?= $post->post_title ?></p>
+						<p class="slide-quote"><?= $post->post_content ?></p>
+						<div class="slide-fields">
+							<p class="slide-author"><?= get_field('ime_prezime', $post->ID) ?></p>
+							<p class="slide-date"><?= get_field('review_datum', $post->ID) ?></p>
+						</div>
 
-				<div class="mySlides">
-					<q class="slide-quote">But man is not made for defeat. A man can be destroyed but not defeated.</q>
-					<p class="slide-author">- Ernest Hemingway</p>
-				</div>
+					</div>
+                    <?php } ?>
 
-				<div class="mySlides">
-					<q class="slide-quote">I have not failed. I've just found 10,000 ways that won't work.</q>
-					<p class="slide-author">- Thomas A. Edison</p>
+					<!-- Next/prev buttons -->
+					<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+					<a class="next" onclick="plusSlides(1)">&#10095;</a>
 				</div>
-
-				<!-- Next/prev buttons -->
-				<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-				<a class="next" onclick="plusSlides(1)">&#10095;</a>
-			</div>
 		</section>
 		<section id="about-us"></section>
 		<section id="newsletter">
