@@ -27,13 +27,13 @@
 	img {
 	  width: 100%;
 	  height: auto;
-	  border-radius: 25px;
+	  border-radius: $img-border-radius;
 	}
   }
 
   .wp-block-image {
 	img {
-	  border-radius: 25px;
+	  border-radius: $img-border-radius;
 	  height: auto;
 	}
   }

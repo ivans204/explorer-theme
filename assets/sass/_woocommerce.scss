@@ -69,7 +69,7 @@
 .woocommerce {
   .woocommerce-product-gallery__wrapper {
 	img {
-	  border-radius: 25px;
+	  border-radius: $img-border-radius;
 	}
   }
 }

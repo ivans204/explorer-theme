@@ -18,7 +18,7 @@
 	.slides {
 	  .ms-image {
 		img {
-		  border-radius: 25px;
+		  border-radius: $img-border-radius;
 		}
 
 		.caption-wrap {

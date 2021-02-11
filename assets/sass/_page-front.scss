@@ -1,14 +1,20 @@
-#explore {
-  position: relative;
+.clouds-bg {
   background-image: url("../img/cloud-bg.png");
   margin-top: -100px;
+  padding-top: 250px;
+  position: relative;
+  padding-bottom: 100px;
+}
+
+#explore {
   padding-top: 200px;
+  padding-bottom: 0;
 
   .compass-img {
 	max-width: 100%;
 
 	@media screen and (max-width: 991px) {
-		margin-bottom: 80px;
+	  margin-bottom: 80px;
 	}
   }
 
@@ -77,12 +83,6 @@
 }
 
 #explore-area {
-  background-image: url("../img/cloud-bg.png");
-  margin-top: -100px;
-  padding-top: 250px;
-  position: relative;
-  padding-bottom: 100px;
-
   .explore-area {
 
 	text-align: center;
@@ -94,6 +94,36 @@
 
 	.explore-area_title {
 	  margin: 15px 0;
+	}
+  }
+}
+
+#about-us {
+  margin-top: -75px;
+
+  .about-us-link {
+	display: inline-flex;
+	color: $green-text;
+	font-weight: bold;
+
+	&:hover {
+	  color: $green-text;
+	}
+  }
+
+  .about-us-text {
+	color: $text-light;
+	line-height: 1.8;
+  }
+
+  .about-us-img {
+	max-width: 100%;
+	height: auto;
+	border-radius: $img-border-radius;
+
+	@media screen and (max-width: 768px) {
+	  display: block;
+	  margin: 25px auto;
 	}
   }
 }
