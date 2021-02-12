@@ -28,6 +28,7 @@
     <div class="section-end beach-img"></div>
 
     <?php echo do_shortcode('[metaslider id="57"]'); ?>
+<!--    --><?php //echo do_shortcode('[metaslider id="159"]'); ?>
 
     <p class="slider-desc">Slike s naših tura</p>
 

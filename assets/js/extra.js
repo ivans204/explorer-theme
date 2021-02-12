@@ -24,6 +24,15 @@ $(document).ready(function () {
     });
   }
 
+  //Front page about us
+  let str = $('#about-us .about-us-text')[0].innerHTML.split(' ')
+  str.splice(0, 2)
+  str.splice(19, 0, '<br><br>')
+  str.splice(40, 0, '<strong>')
+  str.push('</strong>')
+  $('#about-us .about-us-text')[0].innerHTML = str.join(' ');
+  console.log(str);
+
 });
 
 // Slider
