@@ -48,23 +48,26 @@ function getContentByPostName($name) {
 				<div id="activity-parent">
 					<div id="collapseAir" class="collapse" data-parent="#activity-parent">
 						<h1 class="activity-title">Zrak</h1>
-                        <?php
-                        getContentByPostName('zrak')
-                        ?>
+						<div id="air-loader" class="loader">Loading...</div>
+<!--                        --><?php
+//                        getContentByPostName('zrak')
+//                        ?>
 					</div>
 
 					<div id="collapseWater" class="collapse" data-parent="#activity-parent">
 						<h1 class="activity-title">Voda</h1>
-                        <?php
-                        getContentByPostName('voda')
-                        ?>
+						<div id="water-loader" class="loader">Loading...</div>
+<!--                        --><?php
+//                        getContentByPostName('voda')
+//                        ?>
 					</div>
 
 					<div id="collapseEarth" class="collapse" data-parent="#activity-parent">
 						<h1 class="activity-title">Zemlja</h1>
-                        <?php
-                        getContentByPostName('zemlja')
-                        ?>
+						<div id="earth-loader" class="loader">Loading...</div>
+<!--                        --><?php
+//                        getContentByPostName('zemlja')
+//                        ?>
 					</div>
 				</div>
 

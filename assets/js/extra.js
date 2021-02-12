@@ -1,6 +1,7 @@
 $(document).ready(function () {
   // Header slider shadow
   $('#metaslider_122').after('<div class="img-shadow"></div>');
+  // $('#metaslider_57').after('<div class="img-shadow"></div>');
 
   // Offset top navbar
   let frontNav = $('#front-nav');
@@ -25,13 +26,49 @@ $(document).ready(function () {
   }
 
   //Front page about us
-  let str = $('#about-us .about-us-text')[0].innerHTML.split(' ')
-  str.splice(0, 2)
-  str.splice(19, 0, '<br><br>')
-  str.splice(40, 0, '<strong>')
-  str.push('</strong>')
-  $('#about-us .about-us-text')[0].innerHTML = str.join(' ');
-  console.log(str);
+  if ($('#about-us .about-us-text').length) {
+    let str = $('#about-us .about-us-text')[0].innerHTML.split(' ')
+    str.splice(0, 2)
+    str.splice(19, 0, '<br><br>')
+    str.splice(40, 0, '<strong>')
+    str.push('</strong>')
+    $('#about-us .about-us-text')[0].innerHTML = str.join(' ');
+  }
+
+  // Aktivnost AJAX
+
+  const apiUrl = 'http://localhost:8080/explorer/wp-json/wp/v2/posts?slug=';
+  // const apiUrl = 'https://dev.explorer.hr/wp-json/wp/v2/posts?slug=';
+  let airContent = null;
+  let waterContent = null;
+  let earthContent = null;
+
+  $('#activity-air').on('click', function () {
+    loadPostData('zrak', '#collapseAir', airContent, '#air-loader')
+  })
+
+  $('#activity-water').on('click', function () {
+    loadPostData('voda', '#collapseWater', waterContent, '#water-loader')
+  })
+
+  $('#activity-earth').on('click', function () {
+    loadPostData('zemlja', '#collapseEarth', earthContent, '#earth-loader')
+  })
+
+
+  function loadPostData(postName, collapseId, isRendered, loaderId) {
+    if (!isRendered) {
+      $.ajax({
+        url: apiUrl + postName,
+        success: function (data) {
+          $(collapseId).append(data[0].content.rendered)
+          isRendered = data[0].content.rendered
+          $(loaderId).hide();
+        }
+      })
+    }
+  }
+
 
 });
 
