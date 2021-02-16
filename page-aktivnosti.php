@@ -37,17 +37,14 @@ function getThumbnailByPostName($name) {
 
 				<div id="activity-parent">
 					<div id="collapseAir" class="collapse" data-parent="#activity-parent">
-						<h1 class="activity-title">Zrak</h1>
 						<div id="air-loader" class="loader">Loading...</div>
 					</div>
 
 					<div id="collapseWater" class="collapse" data-parent="#activity-parent">
-						<h1 class="activity-title">Voda</h1>
 						<div id="water-loader" class="loader">Loading...</div>
 					</div>
 
 					<div id="collapseEarth" class="collapse" data-parent="#activity-parent">
-						<h1 class="activity-title">Zemlja</h1>
 						<div id="earth-loader" class="loader">Loading...</div>
 					</div>
 				</div>
