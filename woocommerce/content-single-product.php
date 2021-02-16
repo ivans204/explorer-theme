@@ -44,7 +44,7 @@ if (post_password_required())
      */
     do_action('woocommerce_before_single_product_summary');
     ?>
-	<div class="row" style="margin-bottom: 100px">
+	<div class="row" style="margin: 50px 0 100px 0">
 		<div class="summary entry-summary col-lg-4" style="order: 2">
             <?php
             /**

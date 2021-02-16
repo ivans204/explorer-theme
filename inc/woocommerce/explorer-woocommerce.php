@@ -1,176 +1,85 @@
 <?php
-add_filter('woocommerce_product_tabs', 'woo_new_product_tab');
-function woo_new_product_tab($tabs) {
-// Adds the new tab
-    $tabs['test_tab'] = array(
-        'title' => __('Lokacija', 'woocommerce'),
-        'priority' => 50,
-        'callback' => 'woo_new_product_tab_content'
-    );
+
+
+add_action('woocommerce_checkout_create_order_line_item', 'cfwc_add_custom_data_to_order', 10, 4);
+
+add_filter('woocommerce_billing_fields', 'wpb_custom_billing_fields');
+function wpb_custom_billing_fields($fields = array()) {
+
+    unset($fields['billing_company']);
+    unset($fields['billing_address_1']);
+    unset($fields['billing_address_2']);
+//    unset($fields['billing_state']);
+//    unset($fields['billing_city']);
+//    unset($fields['billing_phone']);
+    unset($fields['billing_postcode']);
+    unset($fields['billing_country']);
+
+    return $fields;
+}
+
+/**
+ * Customize product data tabs
+ */
+add_filter('woocommerce_product_tabs', 'woo_custom_description_tab', 98);
+function woo_custom_description_tab($tabs) {
+    $tabs['description']['callback'] = 'woo_custom_description_tab_content';
+    $tabs['description']['priority'] = 1;
+    $tabs['description']['title'] = __('Informacije');
     return $tabs;
 }
 
-function woo_new_product_tab_content() {
-    $file = get_field_object('tura_location');
-    echo '<p>' . $file['label'] . '</p>';
+function woo_custom_description_tab_content() {
+    global $product;
+    $id = $product->get_id();
+
+    echo "
+<div class='row product-details'>
+    <div class='col-2 d-flex align-items-center'><i class='icon icon-clock'></i>
+        <div><p class='acf-info'>" . get_field('tura_duration', $id) . " " . get_field('tura_duration_time', $id) . "</p><p class='acf-name'>" . __('Trajanje') . "</p></div>
+    </div>
+    <div class='col-2 d-flex align-items-center'><i class='icon icon-location'></i>
+        <div><p class='acf-info'>" . get_field('tura_location', $id) . "</p><p class='acf-name'>" . __('Lokacija') . "</p></div>
+    </div>
+    <div class='col-2 d-flex align-items-center'><i class='icon icon-people'></i>
+        <div><p class='acf-info'>" . get_field('tura_age', $id) . "+</p><p class='acf-name'>" . __('Godine') . "</p></div>
+    </div>
+    <div class='col-2 d-flex align-items-center'><i class='icon icon-activity'></i>
+        <div><p class='acf-info'>" . get_field('tura_razina_aktivnosti', $id) . "/10</p><p class='acf-name'>" . __('Aktivnosti') . "</p></div>
+    </div>
+    <div class='col-2 d-flex align-items-center'><i class='icon icon-date'></i>
+        <div><p class='acf-info'>" . substr(get_field('tura_start', $id), 0, 4) . "-" . substr(get_field('tura_end', $id), 0, 4) . "</p><p class='acf-name'>" . __('Datumi') . "</p></div>
+    </div>
+    <div class='col-2 d-flex align-items-center'><i class='icon icon-group'></i>
+        <div><p class='acf-info'>" . get_field('tura_group_size', $id) . "</p><p class='acf-name'>" . __('Grupa') . "</p></div>
+    </div>
+</div>
+";
+
+    echo $product->get_description();
+
 }
 
+// Remove title from product summary
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+
+// Remove category from product summary
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+
+// Remove link from product image
+function e12_remove_product_image_link($html, $post_id) {
+    return preg_replace("!<(a|/a).*?>!", '', $html);
+}
+
+add_filter('woocommerce_single_product_image_thumbnail_html', 'e12_remove_product_image_link', 10, 2);
+
 /**
- * Remove related products
+ * Remove related products output
  */
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20);
 
-/**
- * Remove title from summary
- */
-remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
-
-/**
- * Display the custom text field
- * @since 1.0.0
- */
-function cfwc_create_custom_field() {
-    $args = array(
-        'id' => 'custom_text_field_title',
-        'label' => __('Custom Text Field Title', 'cfwc'),
-        'class' => 'cfwc-custom-field',
-        'desc_tip' => true,
-        'description' => __('Enter the title of your custom text field.', 'ctwc'),
-        'value' => __('Date')
-    );
-    woocommerce_wp_text_input($args);
+//disable related bookings on checkout order page
+if (function_exists('YITH_WCBK'))
+{
+    remove_action('woocommerce_order_details_after_order_table', array(YITH_WCBK()->orders, 'show_related_bookings'));
 }
-
-add_action('woocommerce_product_options_general_product_data', 'cfwc_create_custom_field');
-
-/**
- * Save the custom field
- * @since 1.0.0
- */
-function cfwc_save_custom_field($post_id) {
-    $product = wc_get_product($post_id);
-    $title = isset($_POST['custom_text_field_title']) ? $_POST['custom_text_field_title'] : '';
-    $product->update_meta_data('custom_text_field_title', sanitize_text_field($title));
-    $product->save();
-}
-
-add_action('woocommerce_process_product_meta', 'cfwc_save_custom_field');
-/**
- * Display custom field on the front end
- * @since 1.0.0
- */
-function cfwc_display_custom_field() {
-    global $post;
-// Check for the custom field value
-    $product = wc_get_product($post->ID);
-    $title = $product->get_meta('custom_text_field_title');
-    if ($title)
-    {
-// Only display our field if we've got a value for the field title
-//        printf(
-//            '<div class="cfwc-custom-field-wrapper"><label for="cfwc-title-field">%s</label><input type="text" id="cfwc-title-field" name="cfwc-title-field" value=""></div>',
-//            esc_html($title)
-//        );
-
-        $html = '<select name="cfwc-title-field" id="custom-select">';
-        foreach (get_field('tura_repeater') as $value)
-        {
-	        $html .= '<option value="'. $value['tura_date'] . '">'. $value['tura_date'] . '</option>';
-        }
-        $html .= '</select>';
-        echo $html;
-
-    }
-}
-
-add_action('woocommerce_before_add_to_cart_button', 'cfwc_display_custom_field');
-/**
- * Validate the text field
- * @param Array $passed Validation status.
- * @param Integer $product_id Product ID.
- * @param Boolean $quantity Quantity
- * @since 1.0.0
- */
-function cfwc_validate_custom_field($passed, $product_id, $quantity) {
-    if (empty($_POST['cfwc-title-field']))
-    {
-// Fails validation
-        $passed = false;
-        wc_add_notice(__('Please enter a value into the text field', 'cfwc'), 'error');
-    }
-    return $passed;
-}
-
-add_filter('woocommerce_add_to_cart_validation', 'cfwc_validate_custom_field', 10, 3);
-/**
- * Add the text field as item data to the cart object
- * @param Array $cart_item_data Cart item meta data.
- * @param Integer $product_id Product ID.
- * @param Integer $variation_id Variation ID.
- * @param Boolean $quantity Quantity
- * @since 1.0.0
- */
-function cfwc_add_custom_field_item_data($cart_item_data, $product_id, $variation_id, $quantity) {
-    if (!empty($_POST['cfwc-title-field']))
-    {
-// Add the item data
-        $cart_item_data['title_field'] = $_POST['cfwc-title-field'];
-        $product = wc_get_product($product_id); // Expanded function
-        $price = $product->get_price(); // Expanded function
-        $cart_item_data['total_price'] = $price + 100; // Expanded function
-    }
-    return $cart_item_data;
-}
-
-add_filter('woocommerce_add_cart_item_data', 'cfwc_add_custom_field_item_data', 10, 4);
-/**
- * Update the price in the cart
- * @since 1.0.0
- */
-//function cfwc_before_calculate_totals($cart_obj) {
-//    if (is_admin() && !defined('DOING_AJAX'))
-//    {
-//        return;
-//    }
-//// Iterate through each cart item
-//    foreach ($cart_obj->get_cart() as $key => $value)
-//    {
-//        if (isset($value['total_price']))
-//        {
-//            $price = $value['total_price'];
-//            $value['data']->set_price(($price));
-//        }
-//    }
-//}
-
-//add_action('woocommerce_before_calculate_totals', 'cfwc_before_calculate_totals', 10, 1);
-/**
- * Display the custom field value in the cart
- * @since 1.0.0
- */
-function cfwc_cart_item_name($name, $cart_item, $cart_item_key) {
-    if (isset($cart_item['title_field']))
-    {
-        $name .= sprintf(
-            '<p>%s</p>',
-            esc_html($cart_item['title_field'])
-        );
-    }
-    return $name;
-}
-
-add_filter('woocommerce_cart_item_name', 'cfwc_cart_item_name', 10, 3);
-/**
- * Add custom field to order object
- */
-function cfwc_add_custom_data_to_order($item, $cart_item_key, $values, $order) {
-    foreach ($item as $cart_item_key => $values)
-    {
-        if (isset($values['title_field']))
-        {
-            $item->add_meta_data(__('Custom Field', 'cfwc'), $values['title_field'], true);
-        }
-    }
-}
-
-add_action('woocommerce_checkout_create_order_line_item', 'cfwc_add_custom_data_to_order', 10, 4);

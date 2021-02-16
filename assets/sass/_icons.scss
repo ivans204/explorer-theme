@@ -15,8 +15,32 @@
 }
 
 .icon-green-arrow {
-  background-image: url("../img/arrow-right-green.svg");
+  background-image: url("../icons/arrow-right-green.svg");
   margin-left: 5px;
+}
+
+.icon-people {
+  background-image: url("../icons/user.svg");
+}
+
+.icon-group {
+  background-image: url("../icons/users.svg");
+}
+
+.icon-date {
+  background-image: url("../icons/calendar.svg");
+}
+
+.icon-activity {
+  background-image: url("../icons/bar-chart.svg");
+}
+
+.icon-location {
+  background-image: url("../icons/map-pin-black.svg");
+}
+
+.icon-clock {
+  background-image: url("../icons/clock.svg");
 }
 
 .icon {

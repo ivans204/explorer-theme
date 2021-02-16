@@ -3,16 +3,6 @@
 function getThumbnailByPostName($name) {
     return wp_get_attachment_url(get_post_thumbnail_id(get_posts(['name' => $name])[0]->ID), 'thumbnail');
 }
-
-function getContentByPostName($name) {
-    $page = get_posts(['name' => $name]);
-
-    if ($page)
-    {
-        echo $page[0]->post_content;
-    }
-}
-
 ?>
 <?php if (have_posts()) : ?>
     <?php while (have_posts()) : the_post(); ?>
@@ -49,25 +39,16 @@ function getContentByPostName($name) {
 					<div id="collapseAir" class="collapse" data-parent="#activity-parent">
 						<h1 class="activity-title">Zrak</h1>
 						<div id="air-loader" class="loader">Loading...</div>
-<!--                        --><?php
-//                        getContentByPostName('zrak')
-//                        ?>
 					</div>
 
 					<div id="collapseWater" class="collapse" data-parent="#activity-parent">
 						<h1 class="activity-title">Voda</h1>
 						<div id="water-loader" class="loader">Loading...</div>
-<!--                        --><?php
-//                        getContentByPostName('voda')
-//                        ?>
 					</div>
 
 					<div id="collapseEarth" class="collapse" data-parent="#activity-parent">
 						<h1 class="activity-title">Zemlja</h1>
 						<div id="earth-loader" class="loader">Loading...</div>
-<!--                        --><?php
-//                        getContentByPostName('zemlja')
-//                        ?>
 					</div>
 				</div>
 
