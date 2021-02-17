@@ -19,6 +19,13 @@
   margin-left: 5px;
 }
 
+.icon-arrow {
+  background-image: url("../icons/arrow-right.svg");
+  margin-left: 5px;
+  height: 20px !important;
+  width: 20px !important;
+}
+
 .icon-people {
   background-image: url("../icons/user.svg");
 }
@@ -48,4 +55,10 @@
   width: 30px;
   display: block;
   background-repeat: no-repeat;
+}
+
+.woocommerce-page {
+  .content-page {
+    background-image: none !important;
+  }
 }
