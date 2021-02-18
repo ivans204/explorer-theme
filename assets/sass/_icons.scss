@@ -62,6 +62,26 @@
   background-image: url("../icons/kajak.svg");
 }
 
+.icon-avion {
+  background-image: url("../icons/avion.svg");
+}
+
+.icon-jedrenje {
+  background-image: url("../icons/jedrenje.svg");
+}
+
+.icon-planinarenje {
+  background-image: url("../icons/planinarenje.svg");
+}
+
+.icon-quad {
+  background-image: url("../icons/quad.svg");
+}
+
+.icon-spilja {
+  background-image: url("../icons/spilja.svg");
+}
+
 .icon {
   height: 30px;
   width: 30px;
@@ -71,6 +91,6 @@
 
 .woocommerce-page {
   .content-page {
-    background-image: none !important;
+	background-image: none !important;
   }
 }
