@@ -134,6 +134,8 @@
 			color: $text-light;
 			letter-spacing: 0.5px;
 			font-size: 18px;
+			margin-bottom: 0;
+			line-height: 1;
 		  }
 		}
 
@@ -146,6 +148,7 @@
 		  text-align: center;
 		  padding: 15px;
 		  border-radius: 10px;
+		  margin-top: 25px;
 		}
 
 		.close-tura-details {
@@ -190,8 +193,11 @@
 
 #explore-area {
   .explore-area {
-
 	text-align: center;
+
+   @media screen and (max-width: 767px) {
+		margin-bottom: 50px;
+   }
 
 	.explore-area_img {
 	  width: 100%;

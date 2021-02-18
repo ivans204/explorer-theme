@@ -35,22 +35,22 @@ function woo_custom_description_tab_content() {
 
     echo "
 <div class='row product-details'>
-    <div class='col-2 d-flex align-items-center'><i class='icon icon-clock'></i>
+    <div class='col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 d-flex align-items-center'><i class='icon icon-clock'></i>
         <div><p class='acf-info'>" . get_field('tura_duration', $id) . " " . get_field('tura_duration_time', $id) . "</p><p class='acf-name'>" . __('Trajanje') . "</p></div>
     </div>
-    <div class='col-2 d-flex align-items-center'><i class='icon icon-location'></i>
+    <div class='col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 d-flex align-items-center'><i class='icon icon-location'></i>
         <div><p class='acf-info'>" . get_field('tura_location', $id) . "</p><p class='acf-name'>" . __('Lokacija') . "</p></div>
     </div>
-    <div class='col-2 d-flex align-items-center'><i class='icon icon-people'></i>
+    <div class='col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 d-flex align-items-center'><i class='icon icon-people'></i>
         <div><p class='acf-info'>" . get_field('tura_age', $id) . "+</p><p class='acf-name'>" . __('Godine') . "</p></div>
     </div>
-    <div class='col-2 d-flex align-items-center'><i class='icon icon-activity'></i>
+    <div class='col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 d-flex align-items-center'><i class='icon icon-activity'></i>
         <div><p class='acf-info'>" . get_field('tura_razina_aktivnosti', $id) . "/10</p><p class='acf-name'>" . __('Aktivnosti') . "</p></div>
     </div>
-    <div class='col-2 d-flex align-items-center'><i class='icon icon-date'></i>
+    <div class='col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 d-flex align-items-center'><i class='icon icon-date'></i>
         <div><p class='acf-info'>" . substr(get_field('tura_start', $id), 0, 4) . "-" . substr(get_field('tura_end', $id), 0, 4) . "</p><p class='acf-name'>" . __('Datumi') . "</p></div>
     </div>
-    <div class='col-2 d-flex align-items-center'><i class='icon icon-group'></i>
+    <div class='col-xl-2 col-lg-4 col-md-4 col-sm-4 col-6 d-flex align-items-center'><i class='icon icon-group'></i>
         <div><p class='acf-info'>" . get_field('tura_group_size', $id) . "</p><p class='acf-name'>" . __('Grupa') . "</p></div>
     </div>
 </div>

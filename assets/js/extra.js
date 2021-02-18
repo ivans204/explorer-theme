@@ -4,7 +4,7 @@ $(document).ready(function () {
   // $('#metaslider_57').after('<div class="img-shadow"></div>');
 
   // Offset top navbar
-  let frontNav = $('#front-nav');
+  const frontNav = $('#front-nav');
   let y = window.pageYOffset
 
   function frontPageNavScroll() {
@@ -72,7 +72,7 @@ $(document).ready(function () {
    * Front page map
    */
 
-  // Close all modals
+    // Close all modals
   const mapClass = $('.map-ture-details')
   const closeClass = $('.close-tura-details')
 

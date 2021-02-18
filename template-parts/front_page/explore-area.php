@@ -13,8 +13,7 @@ $sea_prod = wc_get_product($sea->ID);
 
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6">
-
+			<div class="col-lg-6 col-md-6">
 				<div class="explore-area">
 					<img class="explore-area_img"
 					     src="<?= wp_get_attachment_url( $sky_prod->get_image_id() ); ?>" alt="">
@@ -24,8 +23,7 @@ $sea_prod = wc_get_product($sea->ID);
 
 
 			</div>
-			<div class="col-lg-6">
-
+			<div class="col-lg-6 col-md-6">
 				<div class="explore-area">
 					<img class="explore-area_img"
 					     src="<?= get_template_directory_uri() . '/assets/img/IMG_-2.jpg' ?>" alt="">
