@@ -11,10 +11,26 @@
   padding-bottom: 0;
 
   .compass-img {
-	max-width: 100%;
+	background-image: url("../img/kompas.png");
+	background-size: contain;
+	background-repeat: no-repeat;
 
 	@media screen and (max-width: 991px) {
-	  margin-bottom: 80px;
+	  margin-bottom: 50px;
+	}
+  }
+
+  #hr-map-svg {
+	width: 100%;
+	height: auto;
+
+	path {
+	  fill: $red;
+	  stroke: black;
+
+	  &.active {
+		cursor: pointer;
+	  }
 	}
   }
 
@@ -31,10 +47,14 @@
 	  background: white;
 	  margin-bottom: 25px;
 	  padding: 10px;
+	  border-radius: 15px;
 
 	  .location-img {
-		height: 100%;
 		margin-right: 10px;
+		width: 92px;
+		height: 92px;
+		border-radius: 10px;
+		object-fit: cover;
 	  }
 
 	  .explore-locate {
@@ -44,6 +64,10 @@
 		color: $red;
 		font-size: 18px;
 
+		@media screen and (max-width: 575px) {
+			font-size: 0;
+		}
+
 		&:focus {
 		  outline: none;
 		}
@@ -52,11 +76,77 @@
 	  .location-info {
 		.explore-title, .explore-duration {
 		  margin-bottom: 0;
+		  line-height: 1;
 		}
 
 		.explore-duration {
 		  color: $text-light;
 		}
+	  }
+
+	  #details-lika, #details-istra, #details-sjd, #details-gk {
+		display: none;
+	  }
+
+	  .map-ture-details {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		padding: 20px;
+		background: white;
+		box-shadow: 0px 1px 10px 0px rgb(0 0 0 / 5%);
+		border-radius: 10px;
+
+		.explore-area_img {
+		  border-radius: $img-border-radius;
+		  width: 100%;
+		  height: 50%;
+		  object-fit: cover;
+		}
+
+		.ture-details {
+		  margin-top: 25px;
+		  display: flex;
+		  justify-content: space-between;
+		  align-items: center;
+
+		  p {
+			color: $text-light;
+			letter-spacing: 0.5px;
+			font-size: 18px;
+		  }
+		}
+
+		.tura-get-more {
+		  display: block;
+		  width: 100%;
+		  font-weight: bold;
+		  color: white !important;
+		  background-color: $red;
+		  text-align: center;
+		  padding: 15px;
+		  border-radius: 10px;
+		}
+
+		.close-tura-details {
+		  border: none;
+		  background: none;
+		  color: $red;
+		  text-decoration: underline;
+		  text-align: center;
+		  display: block;
+		  margin: 25px auto;
+		  font-size: 1.2rem;
+
+		  &:focus {
+			outline: none;
+		  }
+		}
+
 	  }
 	}
   }

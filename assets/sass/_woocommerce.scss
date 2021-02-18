@@ -68,7 +68,7 @@
 
 .woocommerce {
   //.yith-wcbk-form-section-duration {
-	//display: none;
+  //display: none;
   //}
 
   .woocommerce-product-gallery__wrapper {
@@ -158,4 +158,16 @@
 .woocommerce div.product div.images img {
   height: 600px;
   object-fit: cover;
+}
+
+.product-explore-the-sky, .product-explore-the-sea {
+
+  .summary .yith-wcbk-add-to-cart-button {
+	background-color: $blue-link !important;
+  }
+
+  .product .woocommerce-tabs .tabs li.active a {
+	color: $blue-link !important;
+	border-bottom: 2px solid $blue-link !important;
+  }
 }

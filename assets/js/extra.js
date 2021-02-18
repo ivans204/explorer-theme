@@ -8,9 +8,9 @@ $(document).ready(function () {
   let y = window.pageYOffset
 
   function frontPageNavScroll() {
-    if (y >= 850) {
+    if (y >= 800) {
       frontNav.css({'background-color': 'rgba(0,0,0,0.5)'})
-    } else if (y < 850) {
+    } else if (y < 800) {
       frontNav.css({'background-color': 'transparent'})
     }
   }
@@ -68,6 +68,67 @@ $(document).ready(function () {
       })
     }
   }
+
+
+  /***
+   * Front page map
+   */
+
+  const plava = '#193B56';
+  const crvena = '#a80603';
+
+  const svgMap = $('#hr-map-svg')
+
+  const tureAll = [
+    {
+      close: $('#close-istra'),
+      path: $('#hr-map-svg path[name*="Istarska"]'),
+      details: $('#details-istra'),
+      locate: $('#locate-istra')
+    },
+    {
+      close: $('#close-lika'),
+      path: $('#hr-map-svg path[name*="Licko-Senjska"]'),
+      details: $('#details-lika'),
+      locate: $('#locate-lika')
+    },
+    {
+      close: $('#close-gk'),
+      path: $('#hr-map-svg path[name*="Primorsko-Goranska"]'),
+      details: $('#details-gk'),
+      locate: $('#locate-gk')
+    },
+    {
+      close: $('#close-sjd'),
+      path: $('#hr-map-svg path[name*="Zadarska"]'),
+      details: $('#details-sjd'),
+      locate: $('#locate-sjd')
+    },
+  ]
+
+  tureAll.forEach(function (tura) {
+
+    tura.close.on('click', function () {
+      tura.details.css('display', 'none');
+      tura.path.css('fill', crvena);
+      svgMap.css('pointer-events', 'all')
+    })
+
+    tura.locate.on('click', function () {
+      tura.path.css('fill', plava);
+      tura.details.css('display', 'block');
+      svgMap.css('pointer-events', 'none')
+    })
+
+    tura.path.on('click', function () {
+      $(this).css('fill', plava);
+      tura.details.css('display', 'block');
+      svgMap.css('pointer-events', 'none')
+    })
+
+    tura.path.addClass('active');
+
+  })
 
 
 });

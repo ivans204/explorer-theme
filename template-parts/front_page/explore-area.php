@@ -7,7 +7,6 @@ $sea = get_page_by_title('Explore the sea', OBJECT, 'product');
 $sky_prod = wc_get_product($sky->ID);
 $sea_prod = wc_get_product($sea->ID);
 
-//var_dump($sea->get_image());
 ?>
 
 <section id="explore-area" class="clouds-bg">
