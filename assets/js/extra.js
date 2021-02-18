@@ -28,7 +28,7 @@ $(document).ready(function () {
   //Front page about us
   if ($('#about-us .about-us-text').length) {
     let str = $('#about-us .about-us-text')[0].innerHTML.split(' ')
-    str.splice(0, 2)
+    str.splice(0, 1)
     str.splice(19, 0, '<br><br>')
     str.splice(40, 0, '<strong>')
     str.push('</strong>')
@@ -55,7 +55,6 @@ $(document).ready(function () {
     loadPostData('zemlja', '#collapseEarth', earthContent, '#earth-loader')
   })
 
-
   function loadPostData(postName, collapseId, isRendered, loaderId) {
     if (!isRendered) {
       $.ajax({
@@ -69,37 +68,40 @@ $(document).ready(function () {
     }
   }
 
-
   /***
    * Front page map
    */
 
-  const plava = '#193B56';
-  const crvena = '#a80603';
+  // Close all modals
+  const mapClass = $('.map-ture-details')
+  const closeClass = $('.close-tura-details')
 
-  const svgMap = $('#hr-map-svg')
+  closeClass.each(function () {
+    $(this).on('click', function () {
+      mapClass.removeClass('show')
+      $('path.active').each(function () {
+        $(this).removeClass('clicked')
+      })
+    })
+  })
 
   const tureAll = [
     {
-      close: $('#close-istra'),
       path: $('#hr-map-svg path[name*="Istarska"]'),
       details: $('#details-istra'),
       locate: $('#locate-istra')
     },
     {
-      close: $('#close-lika'),
       path: $('#hr-map-svg path[name*="Licko-Senjska"]'),
       details: $('#details-lika'),
       locate: $('#locate-lika')
     },
     {
-      close: $('#close-gk'),
       path: $('#hr-map-svg path[name*="Primorsko-Goranska"]'),
       details: $('#details-gk'),
       locate: $('#locate-gk')
     },
     {
-      close: $('#close-sjd'),
       path: $('#hr-map-svg path[name*="Zadarska"]'),
       details: $('#details-sjd'),
       locate: $('#locate-sjd')
@@ -108,28 +110,44 @@ $(document).ready(function () {
 
   tureAll.forEach(function (tura) {
 
-    tura.close.on('click', function () {
-      tura.details.css('display', 'none');
-      tura.path.css('fill', crvena);
-      svgMap.css('pointer-events', 'all')
-    })
-
     tura.locate.on('click', function () {
-      tura.path.css('fill', plava);
-      tura.details.css('display', 'block');
-      svgMap.css('pointer-events', 'none')
+      tura.path.addClass('clicked');
+      tura.details.addClass('show');
     })
 
     tura.path.on('click', function () {
-      $(this).css('fill', plava);
-      tura.details.css('display', 'block');
-      svgMap.css('pointer-events', 'none')
+
+      if ($(this).hasClass('clicked')) {
+
+        $(this).removeClass('clicked')
+        tura.details.removeClass('show');
+
+      } else {
+
+        tura.path.addClass('clicked')
+        $('path.active').each(function () {
+          $(this).not(tura.path).each(function () {
+            $(this).removeClass('clicked')
+          })
+        })
+
+        if (tura.details.hasClass('show')) {
+          tura.details.removeClass('show');
+          console.log('tu sam')
+        } else {
+          tura.details.addClass('show');
+          $('.map-ture-details').each(function () {
+            $(this).not(tura.details).each(function () {
+              $(this).removeClass('show');
+            });
+          })
+        }
+      }
     })
 
     tura.path.addClass('active');
 
   })
-
 
 });
 
