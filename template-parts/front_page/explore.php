@@ -56,18 +56,21 @@ $mega_arr = [
                         ?>
 
 						<div class="explore-location">
-							<img class="location-img"
-							     src="<?= wp_get_attachment_url($tura['product']->get_image_id()); ?>" alt="">
-							<div class="location-info">
-								<h2 class="explore-title"><?= $tura['product']->get_title() ?></h2>
-								<p class="explore-duration">
-                                    <?= __('Trajanje: '), get_field('tura_duration', $tura['product']->get_id()), ' ', get_field('tura_duration_time', $tura['product']->get_id()) ?>
-								</p>
+
+							<div class="d-flex align-items-center cursor-pointer" id="<?= $tura['btn-id'] ?>">
+								<img class="location-img"
+								     src="<?= wp_get_attachment_url($tura['product']->get_image_id()); ?>" alt="">
+								<div class="location-info">
+									<h2 class="explore-title"><?= $tura['product']->get_title() ?></h2>
+									<p class="explore-duration">
+                                        <?= __('Trajanje: '), get_field('tura_duration', $tura['product']->get_id()), ' ', get_field('tura_duration_time', $tura['product']->get_id()) ?>
+									</p>
+								</div>
+								<button class="explore-locate d-flex">
+                                    <?= __('Lociraj') ?>
+									<i class="icon icon-map-pin ml-2"></i>
+								</button>
 							</div>
-							<button class="explore-locate d-flex" id="<?= $tura['btn-id'] ?>">
-                                <?= __('Lociraj') ?>
-								<i class="icon icon-map-pin ml-2"></i>
-							</button>
 
 							<div class="map-ture-details" id="<?= $tura['details-id'] ?>">
 								<img class="explore-area_img"
