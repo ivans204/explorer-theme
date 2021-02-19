@@ -8,7 +8,7 @@ if (!function_exists('explorer_theme_setup'))
 // Include additional files
         require_once(get_template_directory() . '/inc/classes/wp-bootstrap-navwalker.php');
         require_once(get_template_directory() . '/inc/classes/theme-customizer.php');
-        require_once (get_template_directory() . '/inc/woocommerce/explorer-woocommerce.php');
+        require_once(get_template_directory() . '/inc/woocommerce/explorer-woocommerce.php');
 
 // Logo theme support
         add_theme_support('custom-logo');
@@ -16,8 +16,8 @@ if (!function_exists('explorer_theme_setup'))
             'flex-height' => true,
             'flex-width' => true,
         ]);
-        add_theme_support( 'custom-header' );
-        add_theme_support( 'wp-block-styles' );
+        add_theme_support('custom-header');
+        add_theme_support('wp-block-styles');
 
 // Thumbnail theme support
         add_theme_support('post-thumbnails');
@@ -74,9 +74,9 @@ if (!function_exists('explorer_theme_setup'))
             {
                 $new_li = "
                     <li class='menu-item nav-item social-btns'>
-                        <a target='_blank' href='". get_theme_mod('contact-facebook-link')."' class='menu-link-social'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-facebook'><path d='M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z'></path></svg></a>
-                        <a target='_blank' href='". get_theme_mod('contact-instagram-link')."' class='menu-link-social'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-instagram'><rect x='2' y='2' width='20' height='20' rx='5' ry='5'></rect><path d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'></path><line x1='17.5' y1='6.5' x2='17.51' y2='6.5'></line></svg></a>
-                        <a target='_blank' href='mailto:". get_theme_mod('contact-info-mail') ."' class='menu-link-social'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-mail'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'></path><polyline points='22,6 12,13 2,6'></polyline></svg></a>
+                        <a target='_blank' href='" . get_theme_mod('contact-facebook-link') . "' class='menu-link-social'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-facebook'><path d='M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z'></path></svg></a>
+                        <a target='_blank' href='" . get_theme_mod('contact-instagram-link') . "' class='menu-link-social'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-instagram'><rect x='2' y='2' width='20' height='20' rx='5' ry='5'></rect><path d='M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z'></path><line x1='17.5' y1='6.5' x2='17.51' y2='6.5'></line></svg></a>
+                        <a target='_blank' href='mailto:" . get_theme_mod('contact-info-mail') . "' class='menu-link-social'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='#ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-mail'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'></path><polyline points='22,6 12,13 2,6'></polyline></svg></a>
                     </li>
                     ";
 
@@ -107,12 +107,14 @@ if (!function_exists('explorer_theme_setup'))
     add_action('after_setup_theme', 'mytheme_add_woocommerce_support');
 
     //Page Slug Body Class
-    function add_slug_body_class( $classes ) {
+    function add_slug_body_class($classes) {
         global $post;
-        if ( isset( $post ) ) {
+        if (isset($post))
+        {
             $classes[] = $post->post_type . '-' . $post->post_name;
         }
         return $classes;
     }
-    add_filter( 'body_class', 'add_slug_body_class' );
+
+    add_filter('body_class', 'add_slug_body_class');
 }
