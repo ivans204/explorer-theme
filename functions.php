@@ -101,7 +101,10 @@ if (!function_exists('explorer_theme_setup'))
 
     // Woocommerce support
     function mytheme_add_woocommerce_support() {
-        add_theme_support('woocommerce');
+        add_theme_support('woocommerce', apply_filters('storefront_woocommerce_args', [
+            'single_image_width' => 1920,
+            'thumbnail_image_width' => 1080,
+        ]));
     }
 
     add_action('after_setup_theme', 'mytheme_add_woocommerce_support');
