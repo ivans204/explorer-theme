@@ -87,6 +87,20 @@ class The_Customizer
             'type' => 'text',
             'input_attrs' => ['placeholder' => 'Enter Facebook link']
         ]));
+
+        // Newsletter text
+        $wp_customize->add_setting('newsletter-text', [
+            'default' => '',
+            'sanitize_callback' => [$this, 'sanitize_custom_text']
+        ]);
+
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'contact-info-facebook', [
+            'label' => 'Front page newsletter text',
+            'section' => 'contact-info-section',
+            'settings' => 'newsletter-text',
+            'type' => 'textarea',
+            'input_attrs' => ['placeholder' => 'Enter front page newsletter text']
+        ]));
     }
 
     private function footer_section($wp_customize) {
