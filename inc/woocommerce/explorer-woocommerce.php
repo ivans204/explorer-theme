@@ -104,6 +104,6 @@ function product_location_tab( $tabs ) {
 }
 function location_tab_content() {
 
-    echo "<a href='". get_field('tura_location_url') ."'><img class='w-100' src='". get_field('tura_location_img') ."'></a>";
+    echo "<a target='_blank' href='". get_field('tura_location_url') ."'><img class='w-100' src='". get_field('tura_location_img') ."'></a>";
 
 }
