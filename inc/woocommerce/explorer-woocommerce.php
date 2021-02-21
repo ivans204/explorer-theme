@@ -83,3 +83,27 @@ if (function_exists('YITH_WCBK'))
 {
     remove_action('woocommerce_order_details_after_order_table', array(YITH_WCBK()->orders, 'show_related_bookings'));
 }
+
+/**
+ * Location tab
+ */
+
+add_filter( 'woocommerce_product_tabs', 'product_location_tab' );
+function product_location_tab( $tabs ) {
+
+    // Adds the new tab
+
+    $tabs['Lokacija'] = array(
+        'title' 	=> __( 'Lokacija', 'explorer_theme' ),
+        'priority' 	=> 2,
+        'callback' 	=> 'location_tab_content'
+    );
+
+    return $tabs;
+
+}
+function location_tab_content() {
+
+    echo "<a href='". get_field('tura_location_url') ."'><img class='w-100' src='". get_field('tura_location_img') ."'></a>";
+
+}
