@@ -1,34 +1,39 @@
 <?php
 
 global $product;
+global $dynamic_featured_image;
 
-$lika = wc_get_product(get_page_by_title('Explore Lika', OBJECT, 'product')->ID);
-$gorski_kotar = wc_get_product(get_page_by_title('Explore Gorski Kotar', OBJECT, 'product')->ID);
-$istra = wc_get_product(get_page_by_title('Explore Istra', OBJECT, 'product')->ID);
-$sj_dalmacija = wc_get_product(get_page_by_title('Explore Sj. Dalmacija', OBJECT, 'product')->ID);
+$lika = get_page_by_title('Explore Lika', OBJECT, 'product');
+$gorski_kotar = get_page_by_title('Explore Gorski Kotar', OBJECT, 'product');
+$istra = get_page_by_title('Explore Istra', OBJECT, 'product');
+$sj_dalmacija = get_page_by_title('Explore Sj. Dalmacija', OBJECT, 'product');
 
 $mega_arr = [
     'lika' => [
-        'product' => $lika,
+        'product' => wc_get_product($lika->ID),
         'btn-id' => 'locate-lika',
         'details-id' => 'details-lika',
-        'close-id' => 'close-lika'
+        'close-id' => 'close-lika',
+        'featured-image' => $dynamic_featured_image->get_featured_images($lika->ID)[0]['full']
     ],
     'gorski_kotar' => [
-        'product' => $gorski_kotar,
+        'product' => wc_get_product($gorski_kotar->ID),
         'btn-id' => 'locate-gk',
         'details-id' => 'details-gk',
-        'close-id' => 'close-gk'
+        'close-id' => 'close-gk',
+        'featured-image' => $dynamic_featured_image->get_featured_images($gorski_kotar->ID)[0]['full']
     ], 'istra' => [
-        'product' => $istra,
+        'product' => wc_get_product($istra->ID),
         'btn-id' => 'locate-istra',
         'details-id' => 'details-istra',
-        'close-id' => 'close-istra'
+        'close-id' => 'close-istra',
+        'featured-image' => $dynamic_featured_image->get_featured_images($istra->ID)[0]['full']
     ], 'sj_dalmacija' => [
-        'product' => $sj_dalmacija,
+        'product' => wc_get_product($sj_dalmacija->ID),
         'btn-id' => 'locate-sjd',
         'details-id' => 'details-sjd',
-        'close-id' => 'close-sjd'
+        'close-id' => 'close-sjd',
+        'featured-image' => $dynamic_featured_image->get_featured_images($sj_dalmacija->ID)[0]['full']
     ],
 ]
 
@@ -58,8 +63,7 @@ $mega_arr = [
 						<div class="explore-location">
 
 							<div class="d-flex align-items-center cursor-pointer" id="<?= $tura['btn-id'] ?>">
-								<img class="location-img"
-								     src="<?= wp_get_attachment_url($tura['product']->get_image_id()); ?>" alt="">
+								<img class="location-img" src="<?= $tura['featured-image']; ?>" alt="">
 								<div class="location-info">
 									<h2 class="explore-title"><?= $tura['product']->get_title() ?></h2>
 									<p class="explore-duration">
@@ -73,9 +77,7 @@ $mega_arr = [
 							</div>
 
 							<div class="map-ture-details" id="<?= $tura['details-id'] ?>">
-								<img class="explore-area_img"
-								     src="<?= wp_get_attachment_url($tura['product']->get_image_id()); ?>"
-								     alt="">
+								<img class="explore-area_img" src="<?= $tura['featured-image']; ?>" alt="">
 								<div class="ture-details">
 									<div class="title-duration">
 										<h2><?= $tura['product']->get_title() ?></h2>
