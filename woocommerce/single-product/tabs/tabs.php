@@ -30,9 +30,8 @@ $product_tabs = apply_filters( 'woocommerce_product_tabs', array() );
 
 if ( ! empty( $product_tabs ) ) : ?>
 
-	<div class="woocommerce-tabs wc-tabs-wrapper col-lg-8" style="order: 1">
+	<div class="woocommerce-tabs wc-tabs-wrapper col-lg-12" style="order: 1">
 		<?php the_title( '<h1 class="product_title entry-title tura-title">', '</h1>' ); ?>
-		<p class="tura-duration">Trajanje: <?= get_field('tura_duration'), " ", get_field('tura_duration_time') ?></p>
 		<ul class="tabs wc-tabs" role="tablist">
 			<?php foreach ( $product_tabs as $key => $product_tab ) : ?>
 				<li class="<?php echo esc_attr( $key ); ?>_tab" id="tab-title-<?php echo esc_attr( $key ); ?>" role="tab" aria-controls="tab-<?php echo esc_attr( $key ); ?>">
