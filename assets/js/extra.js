@@ -43,15 +43,24 @@ $(document).ready(function () {
   let waterContent = null;
   let earthContent = null;
 
+  function scrollFromTop() {
+    $([document.documentElement, document.body]).animate({
+      scrollTop: $('body').position().top += 200
+    }, 2000);
+  }
+
   $('#activity-air').on('click', function () {
+    cd wp scrollFromTop()
     loadPostData('zrak', '#collapseAir', airContent, '#air-loader')
   })
 
   $('#activity-water').on('click', function () {
+    scrollFromTop()
     loadPostData('voda', '#collapseWater', waterContent, '#water-loader')
   })
 
   $('#activity-earth').on('click', function () {
+    scrollFromTop()
     loadPostData('zemlja', '#collapseEarth', earthContent, '#earth-loader')
   })
 
