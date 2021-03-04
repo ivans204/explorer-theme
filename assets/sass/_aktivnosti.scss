@@ -106,3 +106,21 @@
 	justify-content: center;
   }
 }
+
+.aktivnosti-wrapper {
+  margin-bottom: 15px;
+
+  p {
+	margin-bottom: 0 !important;
+  }
+
+  .tura-name {
+	font-size: 14px;
+	white-space: nowrap;
+	color: #5d5d5d !important;
+  }
+}
+
+.activity-tura-location-link {
+  color: #212529 !important;
+}
