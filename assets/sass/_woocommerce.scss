@@ -159,7 +159,7 @@
 }
 
 .woocommerce div.product div.images img {
-  height: 600px;
+  max-height: 600px;
   object-fit: cover;
 }
 
@@ -178,4 +178,8 @@
 .woocommerce div.product .product_title {
   margin-bottom: 50px;
   font-size: 3rem;
+}
+
+.woocommerce-cart .wc-proceed-to-checkout a.checkout-button {
+  background-color: $red;
 }
