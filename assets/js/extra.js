@@ -50,7 +50,7 @@ $(document).ready(function () {
   }
 
   $('#activity-air').on('click', function () {
-    cd wp scrollFromTop()
+    scrollFromTop()
     loadPostData('zrak', '#collapseAir', airContent, '#air-loader')
   })
 
