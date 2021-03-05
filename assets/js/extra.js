@@ -5,12 +5,13 @@ $(document).ready(function () {
 
   // Offset top navbar
   const frontNav = $('#front-nav');
+  const frontHeader = $('#front-header');
   let y = window.pageYOffset
 
   function frontPageNavScroll() {
-    if (y >= 800) {
+    if (y >= frontHeader.height()) {
       frontNav.css({'background-color': 'rgba(0,0,0,0.5)'})
-    } else if (y < 800) {
+    } else if (y < frontHeader.height()) {
       frontNav.css({'background-color': 'transparent'})
     }
   }

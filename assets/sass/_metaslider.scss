@@ -43,6 +43,10 @@
   img {
 	height: $header-height !important;
 	object-fit: cover;
+
+	@media screen and (max-width: 767px ) {
+	  height: 500px !important;
+	}
   }
 }
 
