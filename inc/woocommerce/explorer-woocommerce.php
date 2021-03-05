@@ -107,3 +107,8 @@ function location_tab_content() {
     echo "<a target='_blank' href='". get_field('tura_location_url') ."'><img class='w-100' src='". get_field('tura_location_img') ."'></a>";
 
 }
+
+add_filter( 'woocommerce_add_to_cart_redirect', function( $url ) {
+    global $woocommerce;
+    return $woocommerce->cart->get_checkout_url();
+});
