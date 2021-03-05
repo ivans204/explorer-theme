@@ -1,4 +1,4 @@
-<section id="newsletter" class="clouds-bg" style="margin-top: 100px">
+<section id="newsletter" class="clouds-bg" style="margin-top: 100px; padding-top: 150px">
 
 	<div class="container">
 		<div class="newsletter-box">
