@@ -94,7 +94,7 @@ class The_Customizer
             'sanitize_callback' => [$this, 'sanitize_custom_text']
         ]);
 
-        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'contact-info-facebook', [
+        $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'contact-info-newsletter', [
             'label' => 'Front page newsletter text',
             'section' => 'contact-info-section',
             'settings' => 'newsletter-text',
